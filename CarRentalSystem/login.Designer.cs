@@ -1,4 +1,4 @@
-﻿namespace CarRentalProjectLogin
+﻿namespace CarRentalSystem
 {
     partial class login
     {
