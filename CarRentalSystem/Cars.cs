@@ -8,7 +8,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
 
 namespace CarRentalSystem
 {
@@ -24,7 +23,7 @@ namespace CarRentalSystem
 
 
         // Changes the colour of text in the textbox when the user starts typing in it.
-        private void txtSearchByRegNo_Enter(object sender, EventArgs e)
+        private void txtSearchByNum_Enter(object sender, EventArgs e)
         {
             if (txtSearchByNum.Text == " Search for car by number plate")
             {
@@ -35,7 +34,7 @@ namespace CarRentalSystem
 
 
         //Changes the text in the textbox back to the placeholder text if it is empty.
-        private void txtSearchByRegNo_Leave(object sender, EventArgs e)
+        private void txtSearchByNum_Leave(object sender, EventArgs e)
         {
 
             if (txtSearchByNum.Text == "")
@@ -99,12 +98,13 @@ namespace CarRentalSystem
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (txtNumPlate.Text == "" || txtBrand.Text == "" || txtModel.Text == "" || txtPrice.Text == "" || (cbStatus.SelectedIndex < 0))
+            //Creating an object of the class used to validate data about the car.
+            ValidateCarData validateCarData = new ValidateCarData();
+
+
+            if (validateCarData.NumberPlatePresenceCheck(txtNumPlate.Text) && validateCarData.BrandPresenceCheck(txtBrand.Text) && validateCarData.ModelPresenceCheck(txtModel.Text) && validateCarData.CarStatusPresenceCheck(cbStatus.SelectedIndex) && validateCarData.RatePerDayChecks(txtPrice.Text)) 
             {
-                MessageBox.Show("Missing information!", "ERROR", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
-            }
-            else
-            {
+                
                 try
                 {
                     string query = $"INSERT INTO Cars VALUES('{txtNumPlate.Text}', '{txtBrand.Text}', '{txtModel.Text}', {txtPrice.Text}, '{cbStatus.SelectedItem.ToString()}');";
@@ -135,7 +135,7 @@ namespace CarRentalSystem
         {
             if (txtNumPlate.Text == "")
             {
-                MessageBox.Show("Missing information!", "ERROR", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                MessageBox.Show("Please select the car to be removed.", "ERROR", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
             }
             else
             {
@@ -170,11 +170,10 @@ namespace CarRentalSystem
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            if (txtNumPlate.Text == "" || txtBrand.Text == "" || txtPrice.Text == "" || (cbStatus.SelectedIndex < 0))
-            {
-                MessageBox.Show("Missing information!", "ERROR", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
-            }
-            else
+            ValidateCarData validateCarData = new ValidateCarData();
+
+            if (validateCarData.NumberPlatePresenceCheck(txtNumPlate.Text) && validateCarData.BrandPresenceCheck(txtBrand.Text) && validateCarData.ModelPresenceCheck(txtModel.Text) && validateCarData.CarStatusPresenceCheck(cbStatus.SelectedIndex) && validateCarData.RatePerDayChecks(txtPrice.Text))
+            
             {
                 try
                 {
@@ -200,12 +199,17 @@ namespace CarRentalSystem
             }
         }
 
+
+
         // Refreshes the table/datagrid to show all its records.
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             Populate();
             //Clears the selection in the combobox.
             cbAvailability.SelectedIndex = -1;
+            //Resets the searchbox to its placeholder text.
+            txtSearchByNum.Text = " Search for car by number plate";
+            txtSearchByNum.ForeColor = Color.Silver;
         }
 
 

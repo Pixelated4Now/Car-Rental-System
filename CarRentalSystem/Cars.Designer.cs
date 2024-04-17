@@ -199,7 +199,7 @@
             this.CarDGV.BorderStyle = System.Windows.Forms.BorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.Indigo;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.WhiteSmoke;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -383,7 +383,7 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(49)))), ((int)(((byte)(96)))));
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 1055);
+            this.panel1.Location = new System.Drawing.Point(0, 999);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1670, 51);
             this.panel1.TabIndex = 72;
@@ -405,8 +405,8 @@
             this.txtSearchByNum.TabIndex = 74;
             this.txtSearchByNum.Text = " Search for car by number plate";
             this.txtSearchByNum.TextChanged += new System.EventHandler(this.txtSearchByNum_TextChanged);
-            this.txtSearchByNum.Enter += new System.EventHandler(this.txtSearchByRegNo_Enter);
-            this.txtSearchByNum.Leave += new System.EventHandler(this.txtSearchByRegNo_Leave);
+            this.txtSearchByNum.Enter += new System.EventHandler(this.txtSearchByNum_Enter);
+            this.txtSearchByNum.Leave += new System.EventHandler(this.txtSearchByNum_Leave);
             // 
             // lblModel
             // 
@@ -465,7 +465,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1670, 1106);
+            this.ClientSize = new System.Drawing.Size(1670, 1050);
             this.Controls.Add(this.cbStatus);
             this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.lblModel);
@@ -487,6 +487,7 @@
             this.Controls.Add(this.txtBrand);
             this.Controls.Add(this.txtNumPlate);
             this.Controls.Add(this.lblNumPlate);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Cars";
             this.Text = "Cars";
