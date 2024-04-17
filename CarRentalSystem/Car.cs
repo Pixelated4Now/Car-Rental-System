@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace CarRentalSystem
 {
-    public partial class Cars : Form
+    public partial class Car : Form
     {
-        public Cars()
+        public Car()
         {
             InitializeComponent();
         }
@@ -25,6 +25,9 @@ namespace CarRentalSystem
         // Changes the colour of text in the textbox when the user starts typing in it.
         private void txtSearchByNum_Enter(object sender, EventArgs e)
         {
+            if (cbAvailability.SelectedIndex > -1) 
+                cbAvailability.SelectedIndex = -1;
+
             if (txtSearchByNum.Text == " Search for car by number plate")
             {
                 txtSearchByNum.Text = "";
@@ -217,6 +220,11 @@ namespace CarRentalSystem
         // Functionality of the search feature to filter out avilable, rented and damaged cars.
         private void cbAvailability_SelectionChangeCommitted(object sender, EventArgs e)
         {
+            if (txtSearchByNum.Text != " Search for car by number plate")
+            {
+                txtSearchByNum.Text = " Search for car by number plate";
+                txtSearchByNum.ForeColor = Color.Silver;
+            }
             string status;
             if (cbAvailability.SelectedIndex == 0)
                 status = "AVAILABLE";
