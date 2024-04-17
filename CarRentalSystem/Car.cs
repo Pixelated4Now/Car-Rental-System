@@ -72,7 +72,7 @@ namespace CarRentalSystem
 
         private void Cars_Load(object sender, EventArgs e)
         {
-
+            
             Populate();
         }
 
@@ -265,8 +265,7 @@ namespace CarRentalSystem
             }
         }
 
-
-
+       
     }
 }
 
