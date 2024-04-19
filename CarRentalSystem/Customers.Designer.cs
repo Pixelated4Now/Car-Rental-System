@@ -37,8 +37,6 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.BottomPanel = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
-            this.lblLicense = new System.Windows.Forms.Label();
-            this.txtLicense = new System.Windows.Forms.TextBox();
             this.txtSearchByID = new System.Windows.Forms.TextBox();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
@@ -47,6 +45,11 @@
             this.lblAddress = new System.Windows.Forms.Label();
             this.lblContactNo = new System.Windows.Forms.Label();
             this.CustomerDGV = new System.Windows.Forms.DataGridView();
+            this.customerIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.customerNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contactNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.licenseNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.customerAddressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.customersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.carRentalDataSet1 = new CarRentalSystem.CarRentalDataSet1();
             this.label3 = new System.Windows.Forms.Label();
@@ -55,12 +58,10 @@
             this.lblName = new System.Windows.Forms.Label();
             this.btnReset = new System.Windows.Forms.Button();
             this.customersTableAdapter = new CarRentalSystem.CarRentalDataSet1TableAdapters.CustomersTableAdapter();
-            this.customerIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.customerNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contactNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.licenseNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.customerAddressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menu1 = new CarRentalSystem.Menu();
+            this.txtLicense = new System.Windows.Forms.TextBox();
+            this.lblLicense = new System.Windows.Forms.Label();
+            this.btnRefresh = new System.Windows.Forms.Button();
             this.TopPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CustomerDGV)).BeginInit();
@@ -146,27 +147,6 @@
             this.label2.TabIndex = 101;
             this.label2.Text = "Customer     Details";
             // 
-            // lblLicense
-            // 
-            this.lblLicense.AutoSize = true;
-            this.lblLicense.Font = new System.Drawing.Font("Copperplate Gothic Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLicense.ForeColor = System.Drawing.Color.Black;
-            this.lblLicense.Location = new System.Drawing.Point(287, 452);
-            this.lblLicense.Name = "lblLicense";
-            this.lblLicense.Size = new System.Drawing.Size(123, 26);
-            this.lblLicense.TabIndex = 98;
-            this.lblLicense.Text = "License:";
-            this.lblLicense.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // txtLicense
-            // 
-            this.txtLicense.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLicense.Location = new System.Drawing.Point(546, 443);
-            this.txtLicense.MaxLength = 30;
-            this.txtLicense.Name = "txtLicense";
-            this.txtLicense.Size = new System.Drawing.Size(261, 35);
-            this.txtLicense.TabIndex = 97;
-            // 
             // txtSearchByID
             // 
             this.txtSearchByID.Font = new System.Drawing.Font("Segoe UI", 11F);
@@ -177,6 +157,9 @@
             this.txtSearchByID.Size = new System.Drawing.Size(425, 37);
             this.txtSearchByID.TabIndex = 96;
             this.txtSearchByID.Text = " Search for customer by ID";
+            this.txtSearchByID.TextChanged += new System.EventHandler(this.txtSearchByID_TextChanged);
+            this.txtSearchByID.Enter += new System.EventHandler(this.txtSearchByID_Enter);
+            this.txtSearchByID.Leave += new System.EventHandler(this.txtSearchByID_Leave);
             // 
             // btnEdit
             // 
@@ -190,6 +173,7 @@
             this.btnEdit.TabIndex = 94;
             this.btnEdit.Text = "EDIT CUSTOMER DETAILS";
             this.btnEdit.UseVisualStyleBackColor = false;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnDelete
             // 
@@ -203,6 +187,7 @@
             this.btnDelete.TabIndex = 93;
             this.btnDelete.Text = "DELETE CUSTOMER";
             this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnAdd
             // 
@@ -216,6 +201,7 @@
             this.btnAdd.TabIndex = 92;
             this.btnAdd.Text = "ADD CUSTOMER";
             this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // txtAddress
             // 
@@ -286,6 +272,52 @@
             this.CustomerDGV.RowTemplate.Height = 28;
             this.CustomerDGV.Size = new System.Drawing.Size(1018, 574);
             this.CustomerDGV.TabIndex = 88;
+            this.CustomerDGV.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CustomerDGV_CellClick);
+            // 
+            // customerIDDataGridViewTextBoxColumn
+            // 
+            this.customerIDDataGridViewTextBoxColumn.DataPropertyName = "CustomerID";
+            this.customerIDDataGridViewTextBoxColumn.HeaderText = "CUSTOMER ID";
+            this.customerIDDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.customerIDDataGridViewTextBoxColumn.Name = "customerIDDataGridViewTextBoxColumn";
+            this.customerIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.customerIDDataGridViewTextBoxColumn.Width = 120;
+            // 
+            // customerNameDataGridViewTextBoxColumn
+            // 
+            this.customerNameDataGridViewTextBoxColumn.DataPropertyName = "CustomerName";
+            this.customerNameDataGridViewTextBoxColumn.HeaderText = "NAME";
+            this.customerNameDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.customerNameDataGridViewTextBoxColumn.Name = "customerNameDataGridViewTextBoxColumn";
+            this.customerNameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.customerNameDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // contactNoDataGridViewTextBoxColumn
+            // 
+            this.contactNoDataGridViewTextBoxColumn.DataPropertyName = "ContactNo";
+            this.contactNoDataGridViewTextBoxColumn.HeaderText = "CONTACT NO";
+            this.contactNoDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.contactNoDataGridViewTextBoxColumn.Name = "contactNoDataGridViewTextBoxColumn";
+            this.contactNoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.contactNoDataGridViewTextBoxColumn.Width = 120;
+            // 
+            // licenseNumberDataGridViewTextBoxColumn
+            // 
+            this.licenseNumberDataGridViewTextBoxColumn.DataPropertyName = "LicenseNumber";
+            this.licenseNumberDataGridViewTextBoxColumn.HeaderText = "LICENSE NUMBER";
+            this.licenseNumberDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.licenseNumberDataGridViewTextBoxColumn.Name = "licenseNumberDataGridViewTextBoxColumn";
+            this.licenseNumberDataGridViewTextBoxColumn.ReadOnly = true;
+            this.licenseNumberDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // customerAddressDataGridViewTextBoxColumn
+            // 
+            this.customerAddressDataGridViewTextBoxColumn.DataPropertyName = "CustomerAddress";
+            this.customerAddressDataGridViewTextBoxColumn.HeaderText = "ADDRESS";
+            this.customerAddressDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.customerAddressDataGridViewTextBoxColumn.Name = "customerAddressDataGridViewTextBoxColumn";
+            this.customerAddressDataGridViewTextBoxColumn.ReadOnly = true;
+            this.customerAddressDataGridViewTextBoxColumn.Width = 150;
             // 
             // customersBindingSource
             // 
@@ -350,55 +382,11 @@
             this.btnReset.TabIndex = 102;
             this.btnReset.Text = "reset";
             this.btnReset.UseVisualStyleBackColor = false;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // customersTableAdapter
             // 
             this.customersTableAdapter.ClearBeforeFill = true;
-            // 
-            // customerIDDataGridViewTextBoxColumn
-            // 
-            this.customerIDDataGridViewTextBoxColumn.DataPropertyName = "CustomerID";
-            this.customerIDDataGridViewTextBoxColumn.HeaderText = "CUSTOMER ID";
-            this.customerIDDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.customerIDDataGridViewTextBoxColumn.Name = "customerIDDataGridViewTextBoxColumn";
-            this.customerIDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.customerIDDataGridViewTextBoxColumn.Width = 120;
-            // 
-            // customerNameDataGridViewTextBoxColumn
-            // 
-            this.customerNameDataGridViewTextBoxColumn.DataPropertyName = "CustomerName";
-            this.customerNameDataGridViewTextBoxColumn.HeaderText = "NAME";
-            this.customerNameDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.customerNameDataGridViewTextBoxColumn.Name = "customerNameDataGridViewTextBoxColumn";
-            this.customerNameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.customerNameDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // contactNoDataGridViewTextBoxColumn
-            // 
-            this.contactNoDataGridViewTextBoxColumn.DataPropertyName = "ContactNo";
-            this.contactNoDataGridViewTextBoxColumn.HeaderText = "CONTACT NO";
-            this.contactNoDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.contactNoDataGridViewTextBoxColumn.Name = "contactNoDataGridViewTextBoxColumn";
-            this.contactNoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.contactNoDataGridViewTextBoxColumn.Width = 120;
-            // 
-            // licenseNumberDataGridViewTextBoxColumn
-            // 
-            this.licenseNumberDataGridViewTextBoxColumn.DataPropertyName = "LicenseNumber";
-            this.licenseNumberDataGridViewTextBoxColumn.HeaderText = "LICENSE NUMBER";
-            this.licenseNumberDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.licenseNumberDataGridViewTextBoxColumn.Name = "licenseNumberDataGridViewTextBoxColumn";
-            this.licenseNumberDataGridViewTextBoxColumn.ReadOnly = true;
-            this.licenseNumberDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // customerAddressDataGridViewTextBoxColumn
-            // 
-            this.customerAddressDataGridViewTextBoxColumn.DataPropertyName = "CustomerAddress";
-            this.customerAddressDataGridViewTextBoxColumn.HeaderText = "ADDRESS";
-            this.customerAddressDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.customerAddressDataGridViewTextBoxColumn.Name = "customerAddressDataGridViewTextBoxColumn";
-            this.customerAddressDataGridViewTextBoxColumn.ReadOnly = true;
-            this.customerAddressDataGridViewTextBoxColumn.Width = 150;
             // 
             // menu1
             // 
@@ -409,11 +397,47 @@
             this.menu1.Size = new System.Drawing.Size(264, 892);
             this.menu1.TabIndex = 83;
             // 
+            // txtLicense
+            // 
+            this.txtLicense.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtLicense.Location = new System.Drawing.Point(546, 443);
+            this.txtLicense.MaxLength = 30;
+            this.txtLicense.Name = "txtLicense";
+            this.txtLicense.Size = new System.Drawing.Size(261, 35);
+            this.txtLicense.TabIndex = 97;
+            // 
+            // lblLicense
+            // 
+            this.lblLicense.AutoSize = true;
+            this.lblLicense.Font = new System.Drawing.Font("Copperplate Gothic Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLicense.ForeColor = System.Drawing.Color.Black;
+            this.lblLicense.Location = new System.Drawing.Point(287, 452);
+            this.lblLicense.Name = "lblLicense";
+            this.lblLicense.Size = new System.Drawing.Size(123, 26);
+            this.lblLicense.TabIndex = 98;
+            this.lblLicense.Text = "License:";
+            this.lblLicense.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(49)))), ((int)(((byte)(96)))));
+            this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRefresh.Font = new System.Drawing.Font("Perpetua Titling MT", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRefresh.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnRefresh.Location = new System.Drawing.Point(1571, 906);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(313, 47);
+            this.btnRefresh.TabIndex = 103;
+            this.btnRefresh.Text = "refresh table";
+            this.btnRefresh.UseVisualStyleBackColor = false;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
             // Customers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1924, 1039);
+            this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblLicense);
@@ -461,8 +485,6 @@
         private System.Windows.Forms.Panel BottomPanel;
         private CarRentalSystem.Menu menu1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label lblLicense;
-        private System.Windows.Forms.TextBox txtLicense;
         private System.Windows.Forms.TextBox txtSearchByID;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnDelete;
@@ -484,5 +506,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn contactNoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn licenseNumberDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn customerAddressDataGridViewTextBoxColumn;
+        private System.Windows.Forms.TextBox txtLicense;
+        private System.Windows.Forms.Label lblLicense;
+        private System.Windows.Forms.Button btnRefresh;
     }
 }
