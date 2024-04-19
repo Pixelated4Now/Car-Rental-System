@@ -88,10 +88,10 @@ namespace CarRentalSystem
         // Customers
         private void lblCustomers_Click(object sender, EventArgs e)
         {
-            //Customer c = new Customer();
+            Customers c = new Customers();
             var mainForm = this.Parent as Form;
 
-           // c.Show();
+           c.Show();
             mainForm.Hide();
 
         }

@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.panel2 = new System.Windows.Forms.Panel();
+            this.lblTotalCars = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.TopPanel = new System.Windows.Forms.Panel();
             this.lblExit = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -36,19 +38,17 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.BottomPanel = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.lblAvailableCars = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.lblRentedCars = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.lblDamagedCars = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lblTotalCars = new System.Windows.Forms.Label();
-            this.lblAvailableCars = new System.Windows.Forms.Label();
-            this.lblRentedCars = new System.Windows.Forms.Label();
-            this.lblDamagedCars = new System.Windows.Forms.Label();
             this.lblCustomers = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.menu1 = new CarRentalSystem.Menu();
             this.panel2.SuspendLayout();
             this.TopPanel.SuspendLayout();
@@ -64,11 +64,33 @@
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(28)))), ((int)(((byte)(237)))));
             this.panel2.Controls.Add(this.lblTotalCars);
             this.panel2.Controls.Add(this.label2);
-            this.panel2.Location = new System.Drawing.Point(351, 195);
+            this.panel2.Location = new System.Drawing.Point(353, 167);
             this.panel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(381, 154);
+            this.panel2.Size = new System.Drawing.Size(355, 154);
             this.panel2.TabIndex = 2;
+            // 
+            // lblTotalCars
+            // 
+            this.lblTotalCars.AutoSize = true;
+            this.lblTotalCars.Font = new System.Drawing.Font("Copperplate Gothic Bold", 30F);
+            this.lblTotalCars.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.lblTotalCars.Location = new System.Drawing.Point(37, 47);
+            this.lblTotalCars.Name = "lblTotalCars";
+            this.lblTotalCars.Size = new System.Drawing.Size(72, 67);
+            this.lblTotalCars.TabIndex = 76;
+            this.lblTotalCars.Text = "0";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Copperplate Gothic Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label2.Location = new System.Drawing.Point(151, 69);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(195, 26);
+            this.label2.TabIndex = 75;
+            this.label2.Text = "Cars in Total";
             // 
             // TopPanel
             // 
@@ -142,18 +164,29 @@
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(28)))), ((int)(((byte)(237)))));
             this.panel3.Controls.Add(this.lblAvailableCars);
             this.panel3.Controls.Add(this.label3);
-            this.panel3.Location = new System.Drawing.Point(872, 195);
+            this.panel3.Location = new System.Drawing.Point(874, 167);
             this.panel3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(381, 154);
+            this.panel3.Size = new System.Drawing.Size(355, 154);
             this.panel3.TabIndex = 84;
+            // 
+            // lblAvailableCars
+            // 
+            this.lblAvailableCars.AutoSize = true;
+            this.lblAvailableCars.Font = new System.Drawing.Font("Copperplate Gothic Bold", 30F);
+            this.lblAvailableCars.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.lblAvailableCars.Location = new System.Drawing.Point(32, 47);
+            this.lblAvailableCars.Name = "lblAvailableCars";
+            this.lblAvailableCars.Size = new System.Drawing.Size(72, 67);
+            this.lblAvailableCars.TabIndex = 77;
+            this.lblAvailableCars.Text = "0";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Copperplate Gothic Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label3.Location = new System.Drawing.Point(130, 69);
+            this.label3.Location = new System.Drawing.Point(110, 69);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(222, 26);
             this.label3.TabIndex = 74;
@@ -164,18 +197,29 @@
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(28)))), ((int)(((byte)(237)))));
             this.panel4.Controls.Add(this.lblRentedCars);
             this.panel4.Controls.Add(this.label4);
-            this.panel4.Location = new System.Drawing.Point(1432, 186);
+            this.panel4.Location = new System.Drawing.Point(1434, 158);
             this.panel4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(381, 154);
+            this.panel4.Size = new System.Drawing.Size(355, 154);
             this.panel4.TabIndex = 3;
+            // 
+            // lblRentedCars
+            // 
+            this.lblRentedCars.AutoSize = true;
+            this.lblRentedCars.Font = new System.Drawing.Font("Copperplate Gothic Bold", 30F);
+            this.lblRentedCars.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.lblRentedCars.Location = new System.Drawing.Point(68, 46);
+            this.lblRentedCars.Name = "lblRentedCars";
+            this.lblRentedCars.Size = new System.Drawing.Size(72, 67);
+            this.lblRentedCars.TabIndex = 77;
+            this.lblRentedCars.Text = "0";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Copperplate Gothic Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label4.Location = new System.Drawing.Point(180, 69);
+            this.label4.Location = new System.Drawing.Point(146, 78);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(184, 26);
             this.label4.TabIndex = 74;
@@ -186,18 +230,29 @@
             this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(28)))), ((int)(((byte)(237)))));
             this.panel7.Controls.Add(this.lblDamagedCars);
             this.panel7.Controls.Add(this.label5);
-            this.panel7.Location = new System.Drawing.Point(569, 395);
+            this.panel7.Location = new System.Drawing.Point(579, 358);
             this.panel7.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(381, 154);
+            this.panel7.Size = new System.Drawing.Size(355, 154);
             this.panel7.TabIndex = 85;
+            // 
+            // lblDamagedCars
+            // 
+            this.lblDamagedCars.AutoSize = true;
+            this.lblDamagedCars.Font = new System.Drawing.Font("Copperplate Gothic Bold", 30F);
+            this.lblDamagedCars.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.lblDamagedCars.Location = new System.Drawing.Point(40, 50);
+            this.lblDamagedCars.Name = "lblDamagedCars";
+            this.lblDamagedCars.Size = new System.Drawing.Size(72, 67);
+            this.lblDamagedCars.TabIndex = 77;
+            this.lblDamagedCars.Text = "0";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Copperplate Gothic Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label5.Location = new System.Drawing.Point(143, 69);
+            this.label5.Location = new System.Drawing.Point(132, 69);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(209, 26);
             this.label5.TabIndex = 74;
@@ -208,88 +263,33 @@
             this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(28)))), ((int)(((byte)(237)))));
             this.panel9.Controls.Add(this.lblCustomers);
             this.panel9.Controls.Add(this.label6);
-            this.panel9.Location = new System.Drawing.Point(1163, 395);
+            this.panel9.Location = new System.Drawing.Point(1173, 358);
             this.panel9.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(381, 154);
+            this.panel9.Size = new System.Drawing.Size(355, 154);
             this.panel9.TabIndex = 86;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Copperplate Gothic Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label6.Location = new System.Drawing.Point(201, 69);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(161, 26);
-            this.label6.TabIndex = 74;
-            this.label6.Text = "Customers";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Copperplate Gothic Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label2.Location = new System.Drawing.Point(166, 69);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(195, 26);
-            this.label2.TabIndex = 75;
-            this.label2.Text = "Cars in Total";
-            // 
-            // lblTotalCars
-            // 
-            this.lblTotalCars.AutoSize = true;
-            this.lblTotalCars.Font = new System.Drawing.Font("Copperplate Gothic Bold", 30F);
-            this.lblTotalCars.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lblTotalCars.Location = new System.Drawing.Point(73, 47);
-            this.lblTotalCars.Name = "lblTotalCars";
-            this.lblTotalCars.Size = new System.Drawing.Size(72, 67);
-            this.lblTotalCars.TabIndex = 76;
-            this.lblTotalCars.Text = "0";
-            // 
-            // lblAvailableCars
-            // 
-            this.lblAvailableCars.AutoSize = true;
-            this.lblAvailableCars.Font = new System.Drawing.Font("Copperplate Gothic Bold", 30F);
-            this.lblAvailableCars.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lblAvailableCars.Location = new System.Drawing.Point(41, 47);
-            this.lblAvailableCars.Name = "lblAvailableCars";
-            this.lblAvailableCars.Size = new System.Drawing.Size(72, 67);
-            this.lblAvailableCars.TabIndex = 77;
-            this.lblAvailableCars.Text = "0";
-            // 
-            // lblRentedCars
-            // 
-            this.lblRentedCars.AutoSize = true;
-            this.lblRentedCars.Font = new System.Drawing.Font("Copperplate Gothic Bold", 30F);
-            this.lblRentedCars.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lblRentedCars.Location = new System.Drawing.Point(70, 37);
-            this.lblRentedCars.Name = "lblRentedCars";
-            this.lblRentedCars.Size = new System.Drawing.Size(72, 67);
-            this.lblRentedCars.TabIndex = 77;
-            this.lblRentedCars.Text = "0";
-            // 
-            // lblDamagedCars
-            // 
-            this.lblDamagedCars.AutoSize = true;
-            this.lblDamagedCars.Font = new System.Drawing.Font("Copperplate Gothic Bold", 30F);
-            this.lblDamagedCars.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lblDamagedCars.Location = new System.Drawing.Point(65, 37);
-            this.lblDamagedCars.Name = "lblDamagedCars";
-            this.lblDamagedCars.Size = new System.Drawing.Size(72, 67);
-            this.lblDamagedCars.TabIndex = 77;
-            this.lblDamagedCars.Text = "0";
             // 
             // lblCustomers
             // 
             this.lblCustomers.AutoSize = true;
             this.lblCustomers.Font = new System.Drawing.Font("Copperplate Gothic Bold", 30F);
             this.lblCustomers.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lblCustomers.Location = new System.Drawing.Point(83, 37);
+            this.lblCustomers.Location = new System.Drawing.Point(35, 50);
             this.lblCustomers.Name = "lblCustomers";
             this.lblCustomers.Size = new System.Drawing.Size(72, 67);
             this.lblCustomers.TabIndex = 77;
             this.lblCustomers.Text = "0";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Copperplate Gothic Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label6.Location = new System.Drawing.Point(175, 69);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(161, 26);
+            this.label6.TabIndex = 74;
+            this.label6.Text = "Customers";
             // 
             // menu1
             // 

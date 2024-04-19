@@ -215,7 +215,7 @@
             this.ratePerDayDataGridViewTextBoxColumn,
             this.carStatusDataGridViewTextBoxColumn});
             this.CarDGV.DataSource = this.carsBindingSource;
-            this.CarDGV.GridColor = System.Drawing.Color.Indigo;
+            this.CarDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(49)))), ((int)(((byte)(96)))));
             this.CarDGV.Location = new System.Drawing.Point(898, 279);
             this.CarDGV.Margin = new System.Windows.Forms.Padding(0);
             this.CarDGV.MultiSelect = false;
@@ -354,7 +354,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Copperplate Gothic Bold", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label1.Location = new System.Drawing.Point(594, 53);
+            this.label1.Location = new System.Drawing.Point(892, 53);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(257, 35);
             this.label1.TabIndex = 73;
@@ -365,7 +365,7 @@
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Copperplate Gothic Bold", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lblTitle.Location = new System.Drawing.Point(551, 9);
+            this.lblTitle.Location = new System.Drawing.Point(839, 9);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(347, 44);
             this.lblTitle.TabIndex = 58;
