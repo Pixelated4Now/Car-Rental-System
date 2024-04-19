@@ -33,10 +33,10 @@ namespace CarRentalSystem
 
         private void lblDashboard_Click(object sender, EventArgs e)
         {
-            Login l = new Login();
+            Dashboard d = new Dashboard();
             var mainForm = this.Parent as Form;
 
-            l.Show();
+            d.Show();
             mainForm.Hide();
 
         }

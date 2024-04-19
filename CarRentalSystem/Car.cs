@@ -18,7 +18,7 @@ namespace CarRentalSystem
             InitializeComponent();
         }
 
-        SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename='C:\Users\User\OneDrive - NSBM\23.1 Y1 S3\CS107.3\CarRentalSystem\CarRentalSystem\CarRental.mdf';Integrated Security=True");
+        SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename='C:\Users\User\OneDrive - NSBM\23.1 Y1 S3\CS107.3\CRMS\CarRentalSystem\CarRental.mdf';Integrated Security=True");
 
 
 

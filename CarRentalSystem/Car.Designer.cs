@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.cbAvailability = new System.Windows.Forms.ComboBox();
             this.btnReset = new System.Windows.Forms.Button();
@@ -55,6 +55,7 @@
             this.lblExit = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.txtSearchByNum = new System.Windows.Forms.TextBox();
             this.lblModel = new System.Windows.Forms.Label();
@@ -65,7 +66,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.BottomPanel = new System.Windows.Forms.Panel();
             this.menu1 = new CarRentalSystem.Menu();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.CarDGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.carsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.carRentalDataSet)).BeginInit();
@@ -199,14 +199,14 @@
             this.CarDGV.AutoGenerateColumns = false;
             this.CarDGV.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.CarDGV.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Indigo;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.CarDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Indigo;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.CarDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.CarDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.CarDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.numberPlateDataGridViewTextBoxColumn,
@@ -333,7 +333,7 @@
             this.TopPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.TopPanel.Location = new System.Drawing.Point(0, 0);
             this.TopPanel.Name = "TopPanel";
-            this.TopPanel.Size = new System.Drawing.Size(1946, 108);
+            this.TopPanel.Size = new System.Drawing.Size(1924, 108);
             this.TopPanel.TabIndex = 71;
             // 
             // lblExit
@@ -342,7 +342,7 @@
             this.lblExit.Dock = System.Windows.Forms.DockStyle.Right;
             this.lblExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblExit.ForeColor = System.Drawing.Color.White;
-            this.lblExit.Location = new System.Drawing.Point(1897, 0);
+            this.lblExit.Location = new System.Drawing.Point(1875, 0);
             this.lblExit.Name = "lblExit";
             this.lblExit.Size = new System.Drawing.Size(49, 52);
             this.lblExit.TabIndex = 75;
@@ -370,6 +370,16 @@
             this.lblTitle.Size = new System.Drawing.Size(347, 44);
             this.lblTitle.TabIndex = 58;
             this.lblTitle.Text = "Rent     a     Car";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::CarRentalSystem.Properties.Resources.Car_2;
+            this.pictureBox1.Location = new System.Drawing.Point(22, 15);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(107, 73);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 75;
+            this.pictureBox1.TabStop = false;
             // 
             // contextMenuStrip1
             // 
@@ -460,7 +470,7 @@
             this.BottomPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.BottomPanel.Location = new System.Drawing.Point(0, 1000);
             this.BottomPanel.Name = "BottomPanel";
-            this.BottomPanel.Size = new System.Drawing.Size(1946, 39);
+            this.BottomPanel.Size = new System.Drawing.Size(1924, 39);
             this.BottomPanel.TabIndex = 81;
             // 
             // menu1
@@ -472,22 +482,12 @@
             this.menu1.Size = new System.Drawing.Size(264, 892);
             this.menu1.TabIndex = 82;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::CarRentalSystem.Properties.Resources.Car_2;
-            this.pictureBox1.Location = new System.Drawing.Point(22, 15);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(107, 73);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 75;
-            this.pictureBox1.TabStop = false;
-            // 
             // Car
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1946, 1039);
+            this.ClientSize = new System.Drawing.Size(1924, 1039);
             this.Controls.Add(this.menu1);
             this.Controls.Add(this.BottomPanel);
             this.Controls.Add(this.label2);
