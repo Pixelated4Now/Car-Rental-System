@@ -67,80 +67,57 @@ namespace CarRentalSystem
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (!Regex.IsMatch(txtName.Text, "^[a-zA-Z]+$"))
+            ValidateCustomer vc = new ValidateCustomer();
+            if (vc.CustomerNameCheck(txtName.Text) && vc.ContactNoCheck(txtContactNo.Text) && vc.LicenseCheck(txtLicense.Text) && vc.AddressCheck(txtAddress.Text))
             {
-                MessageBox.Show("Please enter a name containing only alphabetical characters.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            if (!Regex.IsMatch(txtContactNo.Text, "^\\d{10}$"))
-            {
-                MessageBox.Show("Please enter a valid phone number with 10 digits.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            if (string.IsNullOrEmpty(txtName.Text))
-            {
-                MessageBox.Show("Please enter a customer name.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
 
-            if (string.IsNullOrEmpty(txtAddress.Text))
-            {
-                MessageBox.Show("Please enter a customer address.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            if (string.IsNullOrEmpty(txtContactNo.Text))
-            {
-                MessageBox.Show("Please enter a customer phone number.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-
-            try
-            {
-                con.Open();
-
-                string insertQuery = $"INSERT INTO Customers (CustomerName, ContactNo, LicenseNumber, CustomerAddress) VALUES (@Name, @PhoneNo, @License, @Address);";
-
-                SqlCommand cmd = new SqlCommand(insertQuery, con);
-
-
-                cmd.Parameters.AddWithValue("@Name", txtName.Text);
-                cmd.Parameters.AddWithValue("@PhoneNo", txtContactNo.Text);
-                cmd.Parameters.AddWithValue("@License", txtLicense.Text);
-                cmd.Parameters.AddWithValue("@Address", txtAddress.Text);
-                
-
-
-                int rowsAffected = cmd.ExecuteNonQuery();
-
-
-                if (rowsAffected > 0)
+                try
                 {
-                    MessageBox.Show("Customer added successfully!", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    con.Open();
 
-                    DataTable customersTable = GetCustomersData();
+                    string insertQuery = $"INSERT INTO Customers (CustomerName, ContactNo, LicenseNumber, CustomerAddress) VALUES (@Name, @PhoneNo, @License, @Address);";
 
-                    CustomerDGV.DataSource = customersTable;
+                    SqlCommand cmd = new SqlCommand(insertQuery, con);
+
+
+                    cmd.Parameters.AddWithValue("@Name", txtName.Text);
+                    cmd.Parameters.AddWithValue("@PhoneNo", txtContactNo.Text);
+                    cmd.Parameters.AddWithValue("@License", txtLicense.Text);
+                    cmd.Parameters.AddWithValue("@Address", txtAddress.Text);
+
+
+
+                    int rowsAffected = cmd.ExecuteNonQuery();
+
+
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show("Customer added successfully!", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        DataTable customersTable = GetCustomersData();
+
+                        CustomerDGV.DataSource = customersTable;
+                    }
+                    else
+                    {
+                        MessageBox.Show("An error occurred while adding the customer.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    MessageBox.Show("An error occurred while adding the customer.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    con.Close();
+
+                    txtName.Text = "";
+                    txtAddress.Text = "";
+                    txtContactNo.Text = "";
+                    txtLicense.Text = "";
                 }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                con.Close(); 
 
-                txtName.Text = "";
-                txtAddress.Text = "";
-                txtContactNo.Text = "";
-                txtLicense.Text = "";
-            }
             
         }
 
@@ -153,10 +130,8 @@ namespace CarRentalSystem
             {
 
                 MessageBox.Show("Please select the customer whose information is to be edited.", "ERROR", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
-                return;
-            }
-            else
-            {
+                
+            } else {
 
                 try
                 {
@@ -220,7 +195,7 @@ namespace CarRentalSystem
             {
 
                 MessageBox.Show("Please select the customer to be deleted.", "ERROR", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
-
+                
             }
             else
             {
@@ -319,7 +294,7 @@ namespace CarRentalSystem
 
             if (txtSearchByID.Text == " ")
             {
-                txtSearchByID.Text = " Search for car by number plate";
+                txtSearchByID.Text = " Search for customer ny ID";
                 txtSearchByID.ForeColor = Color.Silver;
             }
         }
@@ -334,7 +309,7 @@ namespace CarRentalSystem
             CustomerDGV.DataSource = customersTable;
 
             //Resets the searchbox to its placeholder text.
-            txtSearchByID.Text = " Search for car by number plate";
+            txtSearchByID.Text = " Search for customer by ID";
             txtSearchByID.ForeColor = Color.Silver;
         }
 

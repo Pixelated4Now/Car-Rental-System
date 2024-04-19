@@ -96,6 +96,7 @@
     <Compile Include="Menu.Designer.cs">
       <DependentUpon>Menu.cs</DependentUpon>
     </Compile>
+    <Compile Include="ValidateCustomer.cs" />
     <Compile Include="ValidateDamagedCar.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
