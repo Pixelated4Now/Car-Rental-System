@@ -131,56 +131,62 @@ namespace CarRentalSystem
 
                 MessageBox.Show("Please select the customer whose information is to be edited.", "ERROR", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
                 
-            } else {
-
-                try
+            } else { 
+                ValidateCustomer vc = new ValidateCustomer();
+            if (vc.CustomerNameCheck(txtName.Text) && vc.ContactNoCheck(txtContactNo.Text) && vc.LicenseCheck(txtLicense.Text) && vc.AddressCheck(txtAddress.Text))
                 {
-                    con.Open();
-
-                    string updateQuery = $"UPDATE Customers SET CustomerName = @Name, ContactNo = @PhoneNo, LicenseNumber = @License, CustomerAddress = @Address WHERE CustomerID = @CustomerID";
-
-                    SqlCommand cmd = new SqlCommand(updateQuery, con);
-
-
-                    cmd.Parameters.AddWithValue("@CustomerID", customerID);
-                    cmd.Parameters.AddWithValue("@Name", txtName.Text);
-                    cmd.Parameters.AddWithValue("@PhoneNo", txtContactNo.Text);
-                    cmd.Parameters.AddWithValue("@License", txtLicense.Text);
-                    cmd.Parameters.AddWithValue("@Address", txtAddress.Text);
-
-
-
-                    int rowsAffected = cmd.ExecuteNonQuery();
-
-
-                    if (rowsAffected > 0)
+                    try
                     {
-                        MessageBox.Show("Customer information updated successfully!", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        con.Open();
 
-                        DataTable customersTable = GetCustomersData();
+                        string updateQuery = $"UPDATE Customers SET CustomerName = @Name, ContactNo = @PhoneNo, LicenseNumber = @License, CustomerAddress = @Address WHERE CustomerID = @CustomerID";
 
-                        CustomerDGV.DataSource = customersTable;
+                        SqlCommand cmd = new SqlCommand(updateQuery, con);
 
+
+                        cmd.Parameters.AddWithValue("@CustomerID", customerID);
+                        cmd.Parameters.AddWithValue("@Name", txtName.Text);
+                        cmd.Parameters.AddWithValue("@PhoneNo", txtContactNo.Text);
+                        cmd.Parameters.AddWithValue("@License", txtLicense.Text);
+                        cmd.Parameters.AddWithValue("@Address", txtAddress.Text);
+
+
+
+                        int rowsAffected = cmd.ExecuteNonQuery();
+
+
+                        if (rowsAffected > 0)
+                        {
+                            MessageBox.Show("Customer information updated successfully!", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            DataTable customersTable = GetCustomersData();
+
+                            CustomerDGV.DataSource = customersTable;
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("An error occurred while updating the customer. Please try again.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
-                    else
+                    catch (Exception ex)
                     {
-                        MessageBox.Show("An error occurred while updating the customer. Please try again.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                    }
+                    finally
+                    {
+                        con.Close();
+
+                        txtName.Text = "";
+                        txtAddress.Text = "";
+                        txtLicense.Text = "";
+                        txtContactNo.Text = "";
+                        customerID = "";
                     }
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
-                }
-                finally
-                {
-                    con.Close();
+            
 
-                    txtName.Text = "";
-                    txtAddress.Text = "";
-                    txtLicense.Text = "";
-                    txtContactNo.Text = "";
-                    customerID = "";
-                }
+                
             }
             
         }
@@ -199,62 +205,63 @@ namespace CarRentalSystem
             }
             else
             {
+                DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete this customer?", "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (dialogResult == DialogResult.Yes)
+                {
+
+
+                    try
+                    {
+                        con.Open();
+
+
+                        string deleteQuery = $"DELETE FROM Customers WHERE CustomerID = @CustomerID";
+
+
+                        SqlCommand cmd = new SqlCommand(deleteQuery, con);
+
+
+                        cmd.Parameters.AddWithValue("@CustomerID", customerID);
+
+
+                        int rowsAffected = cmd.ExecuteNonQuery();
+
+
+                        if (rowsAffected > 0)
+                        {
+                            MessageBox.Show("Customer deleted successfully!", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            DataTable customersTable = GetCustomersData();
+
+                            CustomerDGV.DataSource = customersTable;
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("An error occurred while deleting the customer.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                    }
+                    finally
+                    {
+                        con.Close();
+
+
+                        txtName.Text = "";
+                        txtAddress.Text = "";
+                        txtLicense.Text = "";
+                        txtContactNo.Text = "";
+                        customerID = "";
+                    }
+                }
             }
 
 
-            DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete this customer?", "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (dialogResult == DialogResult.Yes)
-            {
-
-
-                try
-                {
-                    con.Open();
-
-
-                    string deleteQuery = $"DELETE FROM Customers WHERE CustomerID = @CustomerID";
-
-
-                    SqlCommand cmd = new SqlCommand(deleteQuery, con);
-
-
-                    cmd.Parameters.AddWithValue("@CustomerID", customerID);
-
-
-                    int rowsAffected = cmd.ExecuteNonQuery();
-
-
-                    if (rowsAffected > 0)
-                    {
-                        MessageBox.Show("Customer deleted successfully!", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                        DataTable customersTable = GetCustomersData();
-
-                        CustomerDGV.DataSource = customersTable;
-
-                    }
-                    else
-                    {
-                        MessageBox.Show("An error occurred while deleting the customer.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
-                }
-                finally
-                {
-                    con.Close();
-
-
-                    txtName.Text = "";
-                    txtAddress.Text = "";
-                    txtLicense.Text = "";
-                    txtContactNo.Text = "";
-                    customerID = "";
-                }
-            }
+           
 
 
 
