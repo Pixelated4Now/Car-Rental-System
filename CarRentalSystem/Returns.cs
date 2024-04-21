@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Windows.Input;
 
-namespace Returns
+namespace  CarRentalSystem
 {
     public partial class Returns : Form
     {

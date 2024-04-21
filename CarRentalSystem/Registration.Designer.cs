@@ -1,4 +1,4 @@
-﻿namespace Registration
+﻿namespace CarRentalSystem
 {
     partial class Registration
     {

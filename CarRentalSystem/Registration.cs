@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Linq.Expressions;
 
-namespace Registration
+namespace  CarRentalSystem
 {
     public partial class Registration : Form
     {
