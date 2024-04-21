@@ -1,4 +1,4 @@
-﻿namespace Damageform
+﻿namespace CarRentalSystem
 {
     partial class Damageform
     {
