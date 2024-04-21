@@ -58,10 +58,10 @@
             this.lblName = new System.Windows.Forms.Label();
             this.btnReset = new System.Windows.Forms.Button();
             this.customersTableAdapter = new CarRentalSystem.CarRentalDataSet1TableAdapters.CustomersTableAdapter();
-            this.menu1 = new CarRentalSystem.Menu();
             this.txtLicense = new System.Windows.Forms.TextBox();
             this.lblLicense = new System.Windows.Forms.Label();
             this.btnRefresh = new System.Windows.Forms.Button();
+            this.menu1 = new CarRentalSystem.Menu();
             this.TopPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CustomerDGV)).BeginInit();
@@ -388,15 +388,6 @@
             // 
             this.customersTableAdapter.ClearBeforeFill = true;
             // 
-            // menu1
-            // 
-            this.menu1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(49)))), ((int)(((byte)(96)))));
-            this.menu1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.menu1.Location = new System.Drawing.Point(0, 108);
-            this.menu1.Name = "menu1";
-            this.menu1.Size = new System.Drawing.Size(264, 892);
-            this.menu1.TabIndex = 83;
-            // 
             // txtLicense
             // 
             this.txtLicense.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -431,6 +422,15 @@
             this.btnRefresh.Text = "refresh table";
             this.btnRefresh.UseVisualStyleBackColor = false;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
+            // menu1
+            // 
+            this.menu1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(49)))), ((int)(((byte)(96)))));
+            this.menu1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.menu1.Location = new System.Drawing.Point(0, 108);
+            this.menu1.Name = "menu1";
+            this.menu1.Size = new System.Drawing.Size(264, 892);
+            this.menu1.TabIndex = 83;
             // 
             // Customers
             // 
